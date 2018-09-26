@@ -4,3 +4,5 @@
 ### 2. I worked through my coding issues with my pal,
 ## Daylin Scott
 ### 3. This is what my sketch looked like: 
+! [Image Editor](Foster_MarkupHW3.jpg)
+
