@@ -4,5 +4,6 @@
 ### 2. I worked through my coding issues with my pal,
 ## Daylin Scott
 ### 3. This is what my sketch looked like: 
-! [Image Editor](Foster_MarkupHW3.png)
+![Image of my editor](Foster_MarkupHW3.png)
+
 
