@@ -105,8 +105,16 @@ line( 80, 0, 1, 200 );
     translate( 0, 90 );
 
     // left leg
-    fill( 'rgb(133, 94, 0)' );
-    quad( -20, 0, 20, 0, 100, 200, -100, 200)
+stroke( '#7f5d29' );
+    fill( '#7f5d29' );
+    quad( -25, 0, 25, 0, 105, 200, -105, 200)
+    ellipse( -89, 200, 30, 20 );
+    ellipse( -60, 200, 30, 20 );
+    ellipse( -30, 200, 30, 20 );
+    ellipse( 0, 200, 30, 20 );
+    ellipse( 30, 200, 30, 20 );
+    ellipse( 60, 200, 30, 20 );
+    ellipse( 89, 200, 30, 20 );
 
     pop(); // LEGS END
 
@@ -123,8 +131,7 @@ line( 80, 0, 1, 200 );
 
     // mouth
     fill( '#990027' );
-    arc(
-        0,
+    arc( 0,
         60,
         50,
         20,
@@ -139,7 +146,7 @@ translate ( 0, 15 );
     fill ( '#bda27e' )
     ellipse( 0, 5, 20, 15 );
 
-
+//
 
     // eyes
     // left
@@ -174,14 +181,64 @@ translate ( 0, 15 );
     pop();
 
 push();
-    // cheeks
-    stroke( '#bda27e' );
-    strokeweight( 2 );
-    line( -20, 30, -5, 5 );
+fill( '#990027' );
+quad( -55, -119, 55, -119, 65, -75, -65, -75 );
+arc( 0,
+    -110,
+    100,
+    120,
+    radians(50),
+    radians(100),
+    PIE
+);
+arc( -3,
+    -110,
+    100,
+    120,
+    radians(105),
+    radians(130),
+    PIE
+);
+arc( -55,
+    -99,
+    90,
+    90,
+    radians(100),
+    radians(350),
+    PIE
+);
+arc( 55,
+    -99,
+    90,
+    90,
+    radians(190),
+    radians(80),
+    PIE
+);
+arc( 0,
+    -115,
+    190,
+    400,
+    radians(130),
+    radians(145),
+    PIE
+);
+arc( 0,
+    -115,
+    190,
+    400,
+    radians(35),
+    radians(50),
+    PIE
+);
 
     pop(); // HEAD END
 
-
+push();
+fill( 'pink' );
+stroke( 'pink' )
+ellipse( -55, 2, 30, 20 );
+ellipse( 55, 2, 30, 20 );
 
 
     pop();
