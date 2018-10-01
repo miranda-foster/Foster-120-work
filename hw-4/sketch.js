@@ -6,7 +6,7 @@ function setup() {
 function draw() {
 
     // background
-    background( 'pink' );
+    background( '#FCE0E4' );
 
     push();
 
@@ -93,18 +93,14 @@ line( 80, 0, 1, 200 );
     triangle( 80, 1, 105, 30, 65, 40 );
 
 
-
-
     pop(); // BODY END!
 
 
-    /* ***************************** */
-    /* LEGS */
-    /* ***************************** */
+  // skirt
     push();
     translate( 0, 90 );
 
-    // left leg
+
 stroke( '#7f5d29' );
     fill( '#7f5d29' );
     quad( -25, 0, 25, 0, 105, 200, -105, 200)
@@ -116,35 +112,40 @@ stroke( '#7f5d29' );
     ellipse( 60, 200, 30, 20 );
     ellipse( 89, 200, 30, 20 );
 
-    pop(); // LEGS END
 
+    pop(); // skirt END
 
-    /* ***************************** */
     /* HEAD */
-    /* ***************************** */
+
     push();
     translate( 0, -180 );
 
     fill( '#d2b48c' );
     stroke( '#d2b48c' );
-    ellipse( 0, 0, 160, 190 );
+    ellipse( 0, 0, 150, 190 );
 
     // mouth
     fill( '#990027' );
-    arc( 0,
-        60,
-        50,
+    arc( 3,
+        52,
+        45,
         20,
-        radians(350),
-        radians(220),
+        radians(355),
+        radians(185),
         PIE
     );
+
+    triangle( -5, 40, -25, 53, 5, 50 );
+    triangle( 10, 40, 2, 50, 30, 53);
+
+
+
 
 
     // nose
 translate ( 0, 15 );
     fill ( '#bda27e' )
-    ellipse( 0, 5, 20, 15 );
+    ellipse( 0, 8, 23, 15 );
 
 //
 
@@ -154,15 +155,16 @@ translate ( 0, 15 );
     translate( -40, -30 );
 
     fill(255);
-    ellipse( 0, 0, 35, 25 );
+    ellipse( 3, 0, 35, 25 );
     noFill();
-    fill( 'rgb(75, 185, 255)' );
-    ellipse( 0, 0, 20 );
+    fill( '#3a5acc' );
+    ellipse( 3, 0, 20 );
     fill( 0 );
-    ellipse( 0, 0, 10 );
+    stroke( 0 );
+    ellipse( 3, 0, 10 );
 
-    fill( 'rgb(119, 56, 25)' );
-    quad( 10, -30, -5, -20, -30, -10, -25, -20 );
+    fill( '#5b0017' );
+    quad( 15, -30, -5, -20, -30, -10, -25, -20 );
     pop();
 
     // right
@@ -170,18 +172,20 @@ translate ( 0, 15 );
     translate( 40, -30 );
 
     fill(255);
-    ellipse( 0, 0, 35, 25 );
+    ellipse( -3, 0, 35, 25 );
     noFill();
-    fill( 'rgb(75, 185, 255)' );
-    ellipse( 0, 0, 20 );
+    fill( '#3a5acc' );
+    ellipse( -3, 0, 20 );
     fill( 0 );
-    ellipse( 0, 0, 10 );
-    fill( 'rgb(119, 56, 25)' );
-    quad( -10, -30, -5, -20, 30, -10, 15, -20 );
+    stroke( 0 );
+    ellipse( -3, 0, 10 );
+    fill( '#5b0017' );
+    quad( -15, -30, -5, -20, 30, -10, 15, -20 );
     pop();
 
+
 push();
-fill( '#990027' );
+fill( '#5b0017' );
 quad( -55, -119, 55, -119, 65, -75, -65, -75 );
 arc( 0,
     -110,
@@ -235,8 +239,8 @@ arc( 0,
     pop(); // HEAD END
 
 push();
-fill( 'pink' );
-stroke( 'pink' )
+fill( '#d69c97' );
+stroke( '#d69c97' )
 ellipse( -55, 2, 30, 20 );
 ellipse( 55, 2, 30, 20 );
 
