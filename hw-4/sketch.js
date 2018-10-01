@@ -16,7 +16,7 @@ function draw() {
     translate( 20, 45 );
 
     // left arm
-    stroke( '#c1e1de' );
+    stroke( '#d2b48c' );
     strokeWeight( 30 );
     line( -150, 0, -100, -100 );
     line( -180, -120, -150, 0 );
@@ -28,15 +28,16 @@ function draw() {
 
     // right arm
     rotate( PI );
-    stroke( '#c1e1de' );
+    stroke( '#d2b48c' );
     strokeWeight( 30 );
-    line( -65, 100, -150, 160 );
-    line( -105, 250, -150, 160 );
+    line( -56, 100, -80, 10 );
+    line( -10, -50, -80, 10 );
 
     // hand
     stroke( '#d2b48c' );
-    strokeWeight( 75 );
-    point( -200, -200 );
+    strokeWeight( 50 );
+    point( -10, -50 );
+
 
     pop(); // ARMS END
 
@@ -50,7 +51,31 @@ function draw() {
 fill( '#c1e1de' );
     triangle( 0, 100, -80, -100, 80, -100 );
 translate ( 0, -100 );
+//shirt design
+stroke( '#9bd0cb' );
+strokeWeight( 3 );
+line( -20, 3, -3, 200 );
+line( -30, 3, -6, 200 );
+line( -40, 3, -6, 200 );
+line( -50, 3, -6, 200 );
+line( -60, 3, -6, 200 );
+line( -70, 3, -6, 200 );
 
+stroke( '#9bd0cb' );
+strokeWeight( 3 );
+line( 20, 2.5, 3, 200 );
+line( 30, 3, 6, 200 );
+line( 40, 3, 6, 200 );
+line( 50, 3, 6, 200 );
+line( 60, 3, 6, 200 );
+line( 70, 3, 5, 200 );
+line(-80, 0, -3, 200 );
+line(-80, 0, 80, 0 );
+line( 80, 0, 1, 200 );
+
+
+// buttons and collar
+  fill( '#9bd0cb' );
   ellipse( 0, 10, 10, 10 );
   ellipse( 0, 30, 10, 10 );
   ellipse( 0, 50, 10, 10 );
@@ -60,17 +85,16 @@ translate ( 0, -100 );
   ellipse( 0, 130, 10, 10 );
   ellipse( 0, 150, 10, 10 );
   ellipse( 0, 170, 10, 10 );
-    // button
     rect( -20, 0, 40, -50 );
 
-    stroke( '#9bd0cb' );
-    strokeWeight( 3 );
-    line( -20, 3, -3, 200 );
-    line( -30, 3, -6, 200 );
-    line( -40, 3, -6, 200 );
-    line( -50, 3, -6, 200 );
-    line( -60, 3, -6, 200 );
-    line( -70, 3, -6, 200 );
+// sleeves
+    fill( '#c1e1de' );
+    triangle( -80, 1, -110, 30, -65, 40 );
+    triangle( 80, 1, 105, 30, 65, 40 );
+
+
+
+
     pop(); // BODY END!
 
 
@@ -94,6 +118,7 @@ translate ( 0, -100 );
     translate( 0, -180 );
 
     fill( '#d2b48c' );
+    stroke( '#d2b48c' );
     ellipse( 0, 0, 160, 190 );
 
     // mouth
@@ -111,8 +136,10 @@ translate ( 0, -100 );
 
     // nose
 translate ( 0, 15 );
-    fill ( '#d6bb97' )
-    triangle( 0, 10, -10, -10, 10, -10 );
+    fill ( '#bda27e' )
+    ellipse( 0, 5, 20, 15 );
+
+
 
     // eyes
     // left
@@ -145,6 +172,12 @@ translate ( 0, 15 );
     fill( 'rgb(119, 56, 25)' );
     quad( -10, -30, -5, -20, 30, -10, 15, -20 );
     pop();
+
+push();
+    // cheeks
+    stroke( '#bda27e' );
+    strokeweight( 2 );
+    line( -20, 30, -5, 5 );
 
     pop(); // HEAD END
 
