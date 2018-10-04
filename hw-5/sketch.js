@@ -11,7 +11,7 @@ let sunAngle = 0;
 
 function draw() {
 
-  background( '#16427e')
+  background( '#335A78')
   fill( '#e5bc6e' )
   noStroke();
   triangle( 0, 0, 50, 0, 25, 400 );
@@ -34,11 +34,16 @@ function draw() {
   translate( mouseX, mouseY );
 
 //////**// clock
-  push();
-
+push();
+fill( '#343436' );
+strokeWeight( 3 );
+stroke( '#496d10' );
+ellipse( 80, -60, 60, 60 );
+pop();
 
 /////// minute hand
-  strokeWeight( 10 );
+  push();
+  strokeWeight( 8 );
   stroke( '#eee3d0' );
 
   /// spinning
@@ -49,11 +54,11 @@ function draw() {
   rotate( radians(sunAngle) );
 
   /// draw minute hand
-  line( 0, 0, 70, 0 );
+  line( 0, 0, 80, 0 );
   // center circle
-  fill( '#eee3d0' );
+  fill( '#c56c82' );
   noStroke();
-  ellipse ( 0, 0, 40 );
+  ellipse ( 0, 0, 50 );
   pop();
 
 /////// hour hand
@@ -61,9 +66,10 @@ push();
 translate( 80, -60 );
 rotate( radians(mouseX) );
 stroke( '#ecc974' );
-line(10, 0, 60, 0);
-fill( ' #eee3do ' );
-noStroke();
+line(10, 0, 50, 0);
+fill( '#653916' );
+strokeWeight( 2 );
+stroke( '#eee3d0' );
 ellipse( 0, 0, 25 );
 pop();
 pop();
@@ -87,7 +93,7 @@ ellipse( 200, 400, fruitWidth-25, fruitHeight-25 );
 strokeWeight( 3 );
 ellipse( 200, 400, fruitWidth-45, fruitHeight-45 );
 stroke( '#343436' );
-fill( '#343436' );
+fill( '#653916' );
 ellipse( 200, 400, 10, 10 );
 pop();
 push();
