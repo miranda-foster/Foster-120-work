@@ -8,4 +8,3 @@ plane. It's one thing to have gridlines when putting together shapes into a self
 portrait, but when just working with the coding window, creating the most simple
 drawing takes a lot longer than the finished product seems to deserve. I really
 enjoyed the process after a few hours of frustration.
-My code ended up looking like this:
