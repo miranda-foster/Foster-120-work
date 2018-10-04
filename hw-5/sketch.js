@@ -4,9 +4,9 @@ function setup(){
 }
 // spinning variable
 let fruitAngle = 0;
-let fruitRotationRate = 60;
-let fruitWidth = 90;
-let fruitHeight = 110;
+let fruitRotationRate = 3;
+let fruitWidth = 200;
+let fruitHeight = 200;
 let sunAngle = 0;
 
 function draw() {
@@ -24,7 +24,7 @@ function draw() {
   triangle( 99, 0, 100, 0, 99.5, 3 );
   noCursor();
 
-  fruitRotationRate = ( mouseY*0.3 ) - 30;
+
   fruitAngle = fruitAngle + fruitRotationRate;
   sunAngle = sunAngle - 1
 
@@ -67,15 +67,53 @@ noStroke();
 ellipse( 0, 0, 25 );
 pop();
 pop();
-
+pop();
 ///////////// fruit
 push();
+
 noStroke();
+fill( '#961369' );
+ellipse( 200, 400, 210, 210 );
+pop();
+push();
 fill( '#c56c82' );
-ellipse( 0, 100, fruitWidth, fruitHeight );
+ellipse( 200, 400, fruitWidth, fruitHeight );
+push();
+stroke( '#eee3d0' );
+strokeWeight( 1 );
+ellipse( 200, 400, fruitWidth-15, fruitHeight-15 );
+stroke( '#961369' );
+ellipse( 200, 400, fruitWidth-25, fruitHeight-25 );
+strokeWeight( 3 );
+ellipse( 200, 400, fruitWidth-45, fruitHeight-45 );
+stroke( '#343436' );
+fill( '#343436' );
+ellipse( 200, 400, 10, 10 );
+pop();
+push();
+noStroke();
+fill( '#eee3d0' );
+quad( 250, 383, 253, 383, 260, 395, 260, 400 );
+quad( 255, 380, 260, 390, 265, 395, 265, 390 );
+pop();
+noCursor();
+pop();
+
+push();
+translate( 200, 400 );
+noStroke();
+fill( '#496d1e' );
+rotate( radians(mouseY) );
+triangle( 0, 0 , 80, 40, 80, 100 );
+fill( '#578035' );
+triangle( 0, 0, 60, 60, 60, 100 );
+pop();
+
+pop();
+
+////// fruit rotation
 
 
- 
- fill( ' #c56c82' );
+
 
 }
