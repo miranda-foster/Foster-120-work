@@ -2,7 +2,7 @@ function setup(){
   // canvas for portrait
   createCanvas( windowWidth, windowHeight );
 }
-// spinning variable
+// spinning variables
 let fruitAngle = 0;
 let fruitRotationRate = 3;
 let fruitWidth = 200;
@@ -74,9 +74,12 @@ ellipse( 0, 0, 25 );
 pop();
 pop();
 pop();
+
+
 ///////////// fruit
 push();
 
+/// apple
 noStroke();
 fill( '#961369' );
 ellipse( 200, 400, 210, 210 );
@@ -92,10 +95,14 @@ stroke( '#961369' );
 ellipse( 200, 400, fruitWidth-25, fruitHeight-25 );
 strokeWeight( 3 );
 ellipse( 200, 400, fruitWidth-45, fruitHeight-45 );
+
+/// stem
 stroke( '#343436' );
 fill( '#653916' );
 ellipse( 200, 400, 10, 10 );
 pop();
+
+/// shine
 push();
 noStroke();
 fill( '#eee3d0' );
@@ -105,6 +112,7 @@ pop();
 noCursor();
 pop();
 
+/// leaves
 push();
 translate( 200, 400 );
 noStroke();
@@ -114,12 +122,6 @@ triangle( 0, 0 , 80, 40, 80, 100 );
 fill( '#578035' );
 triangle( 0, 0, 60, 60, 60, 100 );
 pop();
-
 pop();
-
-////// fruit rotation
-
-
-
 
 }
