@@ -1,6 +1,8 @@
-Your Name, Your Section Number
+Miranda Foster, Section 1
 
-[Live Sketch Link](Your Live Link)
+[Live Sketch Link](https://miranda-foster.github.io/Foster-120-work/hw-7/HW-7)
+
+
 
 
 # HW 7 | Describe then Alter the Bouncing Ball
