@@ -1,91 +1,45 @@
-//modified code from Marching Dudes example, colored circles or "balls" in place of Dudes
-
-
-let ball = [];
-let num_of_balls = 25;
-let bg_color;
+let flies = [];
 
 function setup() {
-
     createCanvas(windowWidth, windowHeight);
-    bg_color = color(0, 0, 0);
+    let b = new Fly(width/4, height/4, 10);
+    flies.push(b);
 
-    for (let i = 0; i < num_of_balls; i++) {
-        ball.push( new BouncingBalls() );
-    }
+}
+
+function mouseDragged() {
+    let r = random(0, 50);
+    let b = new Fly(mouseX, mouseY, r);
+    flies.push(b);
+
 }
 
 function draw() {
-    background(bg_color);
+    background(1, 14, 34);
 
-    for (var i = 0; i < ball.length; i++) {
-        ball[i].frame();
+    for (let i = 0; i < flies.length; i++) {
+        flies[i].move();
+        flies[i].show();
+
     }
 }
 
-// Bouncing ball class
-
-class BouncingBalls {
-
-    constructor() {
-        this.size_w = random(20, 80);
-        this.size_h = random(20, 80);
-        this.size_w = this.size_h
-        this.loc_x = random(width);
-        this.loc_y = random(height);
-        this.move_x = random(-2, 2);
-        this.move_y = random(-2, 2);
-        this.ball_color = color(0, random(255), random(255));
-
-
+class Fly {
+    constructor(x, y, r) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
     }
 
-    // method
-    frame() {
-
-        this.display();
-        this.move();
-    }
-
-    display() {
-
-        push();
-        // draw balls at random location
-        translate(this.loc_x, this.loc_y);
-        fill(this.ball_color);
-        ellipse(0, 0, this.size_w, this.size_h);
-
-
-
-        // bounce
-          push();
-          rotate(PI);
-          translate(0, 0);
-          scale(1, -1);
-          arc(0, 0, 0, 0, -PI, CHORD);
-          pop();
-
-        pop();
-    }
-
-
-        // movement of balls
     move() {
-        this.loc_x += this.move_x;
-        this.loc_y += this.move_y;
+        this.x = this.x + random(-15, 15);
+        this.y = this.y + random(-15, 15);
+    }
 
-        if (this.loc_x >= width) {
-            this.move_x *= -1;
-            this.loc_x = width - abs(this.move_x);
-        } else if (this.loc_x <= 0) {
-            this.move_x *= -1;
-            this.loc_x = abs(this.move_x);
-        } else if (this.loc_y >= height) {
-            this.move_y *= -1;
-            this.loc_y = height - abs(this.move_y);
-        } else if (this.loc_y <= 0) {
-            this.move_y *= -1;
-            this.loc_y = abs(this.move_y);
-        }
+    show() {
+        stroke(100);
+        strokeWeight(1);
+        fill("pink");
+        ellipse(this.x, this.y, this.r * 0.2);
     }
 }
