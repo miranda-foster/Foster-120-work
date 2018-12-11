@@ -1,58 +1,87 @@
+let bits = [];
 let balls = [];
-const numOfBalls = 10;
+const howManyBalls = 100;
 
 function setup() {
-    // createCanvas(windowWidth, windowHeight);
-    createCanvas(windowWidth, 800);
+    createCanvas(windowWidth, windowHeight);
+    let b = new Bit(width/2, height/2, 10);
+        bits.push(b);
+    let spot_x = 10;
+    let spot_y = 10;
+    for (let i = 0; i < howManyBalls; i++) {
+        balls.push(new Ball(spot_x, spot_y));
 
-    // create a new ball object of class type "Ball"
-    let init_x = 60;
-    let init_y = 60;
-    for (let i = 0; i < numOfBalls; i++) {
-        balls.push(new Ball(init_x, init_y));
-        // move the starting position
-        // each ball starts in a different spot
-        init_x += 100;
-        if (init_x > width) {
-            init_x = 60;
-            init_y += 100;
+        spot_x += 100;
+        if (spot_x > width) {
+            spot_x = 60;
+            spot_y += 100;
         }
     }
 }
-
-function draw() {
-    background('rgb(102, 102, 0)');
-
-    for (let i = 0; i < balls.length; i++) {
-        // call methods
-        balls[i].ballCheck(balls, i);
-        balls[i].edgeCheck(); //need
-        balls[i].move(); //need
-        balls[i].display(); //need
-    }
+function mouseDragged() {
+  let r = random(10, 50);
+  let b = new Bit(mouseX, mouseY, r);
+  bits.push(b);
 }
 
 
+function draw() {
+    background('rgb(100, 12, 46)');
+
+    for (let i = 10; i < balls.length; i++) {
+        // calls
+        balls[i].ballCheck(balls, i);
+        balls[i].edgeCheck();
+        balls[i].bitCheck(bits, i);
+        balls[i].move();
+        balls[i].display();
+    }
+
+    for (let i = 0; i < bits.length; i++) {
+      bits[i].move();
+      bits[i].show();
+    }
+}
+
+class Bit {
+  constructor(x, y, r) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+  }
+
+  move() {
+    this.x = this.x + random(-5, 5);
+    this.y = this.y +random(-5, 5);
+  }
+
+  show() {
+    stroke(255);
+    strokeWeight(4);
+    noFill();
+    ellipse(this.x, this.y, this.r * 2);
+  }
+}
+
 class Ball {
     constructor(x, y, size) {
-        this.color = 'rgb(160, 160, 160)';
-        this.size = 30;
-        this.rad = this.size / 2;
+        this.color = 'rgb(160, 160, 40)';
+        this.size = 10;
+        this.rad = this.size / 4;
         this.posX = x;
         this.posY = y;
-        this.deltaX = random(-5, 5);
-        this.deltaY = random(-5, 5);
+        this.deltaX = random(-15, 15);
+        this.deltaY = random(-15, 15);
     }
 
     display() {
         push();
-        // remove the balls outer stroke
+      //Design
         noStroke();
-        // set the balls fill color
         fill(this.color);
-        // set the position of the ball
+      //position
         translate(this.posX, this.posY);
-        ellipse(0, 0, this.size);
+        ellipse(15, 15, this.size);
         pop();
     }
 
@@ -61,12 +90,30 @@ class Ball {
         this.posY += this.deltaY;
     }
 
-    edgeCheck() {
-        // check if the ball has hit a vertical wall (left or right walls)
-        if (this.posX + this.rad >= width || this.posX - this.rad <= 0) {
-            this.deltaX *= -1; //need
+    bitCheck(otherBits, anId) {
+      for (let n = 10; n < otherBits.length; n++) {
+
+        if (n !=anId) {
+          let p = dist(this.posX, this.posY, otherBits[n].posX, otherBits[n].posY);
+          let combinedQ = this.rad + otherBits[n].rad;
+
+            if (p <= combinedQ) {
+              this.deltaX *= -1;
+              this.deltaY *= -1;
+
         }
-        // check if the ball has hit a horizontal wall (top or bottom walls)
+      }
+    }
+}
+
+
+    edgeCheck() {
+
+        if (this.posX + this.rad >= width || this.posX - this.rad <= 0) {
+            this.deltaX *= -1;
+        }
+
+        // horizontal walls
         if (this.posY + this.rad >= height || this.posY - this.rad <= 0) {
             this.deltaY *= -1;
         }
@@ -74,10 +121,9 @@ class Ball {
 
 
     ballCheck(otherBalls, myId) {
-        // for loop touches each of the balls in the array
-        for (let n = 0; n < otherBalls.length; n++) {
-            // if n != myId, then check for touching
-            // otherwise, its ME and we need to skip
+
+        for (let n = 10; n < otherBalls.length; n++) {
+
             if (n != myId) {
                 let d = dist(this.posX, this.posY, otherBalls[n].posX, otherBalls[n].posY);
                 let combinedR = this.rad + otherBalls[n].rad;

@@ -1,4 +1,4 @@
-# HW 12
+# HW 11
 ## Miranda Foster
 
 # Classes and Interactions
@@ -7,4 +7,4 @@
 but I couldn't get the code to work either with the color command before/in the class command.
 
 * I tried to work on my own to first create the code, but I ended up modifying the bubble code example.
-* Takeaway: this is a function I'm going to need to work on moving forward. 
+* Takeaway: this is a function I'm going to need to work on moving forward.
